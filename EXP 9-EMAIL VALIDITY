@@ -6,19 +6,15 @@
     <title>Email Validation</title>
     <script>
         function validateEmail() {
-            const email = document.getElementById('email').value;
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (emailPattern.test(email)) {
-                alert("Valid email address.");
-            } else {
-                alert("Invalid email address.");
-            }
+            let email = document.getElementById("email").value;
+            let result = /^[^@]+@[^@]+\.[a-z]{2,}$/.test(email) ? "Valid" : "Invalid";
+            document.getElementById("result").textContent = result;
         }
     </script>
 </head>
 <body>
-    <h1>Email Validation</h1>
-    <input type="text" id="email" placeholder="Enter your email">
-    <button onclick="validateEmail()">Validate</button>
+    <input id="email" placeholder="Enter email">
+    <button onclick="validateEmail()">Check</button>
+    <p id="result"></p>
 </body>
 </html>
